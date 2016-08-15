@@ -1,0 +1,19 @@
+/* Custom CSS  */
+ul:not(.info) {
+    list-style: none;
+    font-family: monospace;
+}
+
+li.closed:before {
+    content: "+";
+    margin-right: 4px;
+}
+li.open:before {
+    content: "-";
+    margin-right: 4px;
+}
+
+label{
+  width:80px;
+}
+/* End custom CSS */

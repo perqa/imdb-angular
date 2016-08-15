@@ -1,0 +1,45 @@
+<div class="">
+  <h1>Movies</h1>
+
+<hr>
+<h3>Filter by</h3>
+<div class="">
+  <div>
+    <label for="genreSelect" class="control-label"> Genre: </label>
+    <select name="genreSelect" id="genreSelect" ng-model="genre" placeholder="Genre">
+      <option ng-repeat="(key, value) in genres" value="{{key}}">{{key}}</option>
+    </select>
+    <button class="close" ng-click="genre=''">Reset &times;</button>
+  </div>
+  <div>
+    <label for="writerSelect" class="control-label"> Writer: </label>
+    <select name="writerSelect" id="writerSelect" ng-model="writer">
+      <option ng-repeat="(key, value) in writers" value="{{key}}">{{key}}</option>
+    </select>
+    <button class="close" ng-click="writer=''">Reset &times;</button>
+  </div>
+  <div>
+    <label for="countrySelect" class="control-label"> Country: </label>
+    <select name="countrySelect" id="countrySelect" ng-model="country">
+      <option ng-repeat="(key, value) in countries" value="{{key}}">{{key}}</option>
+    </select>
+    <button class="close" ng-click="country=''">Reset &times;</button>
+  </div>
+</div>
+
+<hr>
+    <ul>
+      <li ng-repeat="movie in data.Movies" ng-if="filter(movie)" ng-click="setMovie(movie)" role="button" ng-class="{'open': movie.imdbID==selectedMovie.imdbID, 'closed': movie.imdbID!=selectedMovie.imdbID}">
+        <strong>{{movie.Title}}</strong>
+        <div ng-if="movie.imdbID==selectedMovie.imdbID" class="well">
+          <img ng-src="{{movie.Poster}}"/>
+          <ul class="info">
+            <li ng-repeat="(key, value) in selectedMovie">
+              <span ng-hide="key === 'Poster' ">{{key}}: {{value}}</span>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+
+</div>
